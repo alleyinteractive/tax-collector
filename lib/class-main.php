@@ -41,10 +41,19 @@ class Main {
 		if ( ! empty( $this->taxonomies ) ) {
 			add_action( 'init', [ $this, 'remove_add_to_menus' ] );
 			add_action( 'admin_menu', [ $this, 'add_menu_page' ], 8 );
-			add_action( 'admin_menu', [ $this, 'add_taxonomies' ] );
+			add_action( 'admin_menu', [ $this, 'add_taxonomies_to_menu' ] );
 			add_action( 'admin_menu', [ $this, 'admin_submenus' ], 20 );
 			add_action( 'admin_head', [ $this, 'activate_parent_menu' ] );
 		}
+	}
+
+	/**
+	 * Get the taxonomies that are being collected.
+	 *
+	 * @return array
+	 */
+	public function get_taxonomies() {
+		return $this->taxonomies;
 	}
 
 	/**
@@ -78,7 +87,7 @@ class Main {
 	/**
 	 * Add taxonomies to the menu.
 	 */
-	public function add_taxonomies() {
+	public function add_taxonomies_to_menu() {
 		foreach ( $this->taxonomies as $taxonomy ) {
 			$tax_obj = get_taxonomy( $taxonomy );
 			if ( $tax_obj ) {
