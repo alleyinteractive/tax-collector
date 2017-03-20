@@ -25,3 +25,6 @@ require_once( PATH . '/lib/trait-singleton.php' );
 
 // Load the main plugin file.
 add_action( 'after_setup_theme', [ __NAMESPACE__ . '\Main', 'instance' ] );
+
+// Load the main plugin file.
+add_action( 'fm_post', [ __NAMESPACE__ . '\Fields', 'meta_box' ] );
