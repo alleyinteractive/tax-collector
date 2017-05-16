@@ -59,6 +59,7 @@ class Fields {
 							'use_ajax' => true,
 							'taxonomy' => [ $tax ],
 							'only_save_to_taxonomy' => true,
+							'taxonomy_hierarchical' => $tax_obj->hierarchical,
 						] ),
 					] ),
 				],
