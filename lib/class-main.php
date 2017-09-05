@@ -91,7 +91,7 @@ class Main {
 		foreach ( $this->taxonomies as $taxonomy ) {
 			$tax_obj = get_taxonomy( $taxonomy );
 			if ( $tax_obj ) {
-				add_submenu_page( $this->slug, $tax_obj->labels->all_items, $tax_obj->labels->menu_name, $tax_obj->cap->manage_terms, 'edit-tags.php?taxonomy=' . $taxonomy );
+				add_submenu_page( $this->slug, $tax_obj->labels->all_items, $tax_obj->labels->menu_name, $tax_obj->cap->manage_terms, apply_filters( 'tax_collector_menu_link', 'edit-tags.php?taxonomy=' . $taxonomy, $taxonomy ) );
 			}
 		}
 	}
