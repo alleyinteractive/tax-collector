@@ -73,9 +73,10 @@ class Main {
 	 * Add top-level menu item.
 	 */
 	public function add_menu_page() {
+		$page_title = apply_filters( 'tax_collector_submenu_page_title', __( 'Taxonomies', 'tax-collector' ) );
 		add_menu_page(
-			__( 'Taxonomies', 'tax-collector' ),
-			__( 'Taxonomies', 'tax-collector' ),
+			$page_title,
+			$page_title,
 			'manage_categories',
 			'taxonomies',
 			'__return_false',
